@@ -1,6 +1,6 @@
 # Flutter Clean Architecture Demo
 
-A fully functional Flutter demo app built to teach **Clean Architecture** to junior developers.
+A feature-first Flutter demo app that shows how to structure **Clean Architecture** for real project growth.
 It fetches posts from [JSONPlaceholder](https://jsonplaceholder.typicode.com), caches them offline, and displays them in a polished Material 3 UI.
 
 ---
@@ -12,6 +12,22 @@ It fetches posts from [JSONPlaceholder](https://jsonplaceholder.typicode.com), c
 - How to handle **errors cleanly** with `Either<Failure, Success>`
 - How to use **dependency injection** with `get_it`
 - How to write **unit tests** for use cases and BLoC without touching the network
+
+---
+
+## Why This Repo Exists
+
+This repository is built as a practical, readable reference for developers who want to move from "it works" Flutter code to scalable architecture.  
+The goal is to keep the app small enough to learn quickly, while still modeling production-minded choices: clear layer boundaries, dependency inversion, resilient error handling, and testability.
+
+## Visual Preview
+
+Add screenshots or a short GIF here to make the architecture demo easier to evaluate at a glance.
+
+```md
+![Posts list screen](docs/images/posts-list.png)
+![Post detail screen](docs/images/post-detail.png)
+```
 
 ---
 
@@ -156,6 +172,19 @@ main.dart
 
 ---
 
+## Architecture Tradeoffs
+
+### Why BLoC in this demo
+
+- Predictable unidirectional data flow keeps UI state explicit.
+- Works well with use-case driven Domain logic and test isolation.
+- Makes loading/success/error transitions easy to model and verify.
+
+### Tradeoff discussion
+
+- BLoC introduces boilerplate compared with lighter approaches for very small apps.
+- For this architecture-focused demo, explicit structure is a better teaching tradeoff than minimal code size.
+
 ## Packages Used
 
 | Package | Purpose |
@@ -168,6 +197,16 @@ main.dart
 | `connectivity_plus` | Online/offline detection |
 | `equatable` | Value equality |
 | `mockito` | Mocking for unit tests |
+
+---
+
+## Next Improvements
+
+- Pagination for large datasets
+- Search and filtering for posts
+- Pull-to-refresh support
+- Retry actions with backoff on transient failures
+- Expanded test coverage and CI checks
 
 ---
 
@@ -225,4 +264,4 @@ User opens app with no internet
 
 ## License
 
-MIT — free to use, share, and modify.
+Licensed under the MIT License. See `LICENSE` for details.
